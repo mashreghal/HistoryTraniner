@@ -1,0 +1,686 @@
+/* === Reset & Base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0f1117;
+    --bg-card: #1a1d27;
+    --bg-card-hover: #222636;
+    --text: #e8e8ed;
+    --text-muted: #8b8fa3;
+    --primary: #6c5ce7;
+    --primary-hover: #7c6ef7;
+    --success: #00b894;
+    --danger: #e74c3c;
+    --warning: #fdcb6e;
+    --border: #2d3148;
+    --radius: 12px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px 32px;
+}
+
+/* === Header === */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    width: 40px;
+}
+
+.btn-icon:hover {
+    background: var(--bg-card);
+}
+
+.streak-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-card);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-width: 40px;
+    justify-content: center;
+}
+
+#streak-icon {
+    color: var(--warning);
+}
+
+/* === Views === */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Home === */
+.welcome-card {
+    background: linear-gradient(135deg, var(--primary), #4834d4);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.welcome-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.welcome-card p {
+    opacity: 0.85;
+    font-size: 0.9rem;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.section-title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.era-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.era-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+    font-family: inherit;
+}
+
+.era-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.era-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.era-card.locked:hover {
+    transform: none;
+    border-color: var(--border);
+}
+
+.era-emoji {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.era-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.era-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.era-progress {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.era-progress-bar {
+    height: 100%;
+    background: var(--success);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+/* === Curriculum === */
+.era-header {
+    margin-bottom: 20px;
+}
+
+.era-header h2 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.era-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.topic-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.topic-item:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--primary);
+}
+
+.topic-item.completed {
+    border-color: var(--success);
+}
+
+.topic-item.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.topic-item.locked:hover {
+    background: var(--bg-card);
+    border-color: var(--border);
+}
+
+.topic-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.topic-item.completed .topic-number {
+    background: var(--success);
+}
+
+.topic-item.current .topic-number {
+    background: var(--primary);
+}
+
+.topic-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.topic-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.topic-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.topic-year {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.topic-status {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* === Lesson === */
+.lesson-content {
+    padding-bottom: 80px;
+}
+
+.lesson-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.lesson-era-tag {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+}
+
+.lesson-section {
+    margin-bottom: 24px;
+}
+
+.lesson-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.lesson-section p {
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 0.95rem;
+}
+
+.key-takeaways {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 24px;
+}
+
+.key-takeaways h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.key-takeaways ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.key-takeaways li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.key-takeaways li::before {
+    content: "\1F4C5";
+    position: absolute;
+    left: 0;
+    font-size: 0.85rem;
+}
+
+.key-takeaways li strong {
+    color: var(--primary);
+}
+
+.fun-fact {
+    background: linear-gradient(135deg, #2d3436, #353b48);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--warning);
+}
+
+.fun-fact strong {
+    color: var(--warning);
+}
+
+.lesson-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+/* === Quiz === */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.quiz-header h2 {
+    font-size: 1.2rem;
+}
+
+.quiz-progress {
+    background: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.question-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.option-btn:hover {
+    border-color: var(--primary);
+    background: var(--bg-card-hover);
+}
+
+.option-btn.selected {
+    border-color: var(--primary);
+    background: rgba(108, 92, 231, 0.15);
+}
+
+.option-btn.correct {
+    border-color: var(--success);
+    background: rgba(0, 184, 148, 0.15);
+}
+
+.option-btn.wrong {
+    border-color: var(--danger);
+    background: rgba(231, 76, 60, 0.15);
+}
+
+.option-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.option-letter {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.quiz-feedback {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.quiz-feedback.correct {
+    border-color: var(--success);
+}
+
+.quiz-feedback.wrong {
+    border-color: var(--danger);
+}
+
+#feedback-text {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+#feedback-explanation {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+/* === Results === */
+.results-card {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.results-score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 4px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+#results-score {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.results-score-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-left: 2px;
+}
+
+.results-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.results-card p {
+    color: var(--text-muted);
+}
+
+.results-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+/* === Buttons === */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-secondary:hover {
+    background: var(--bg-card);
+    border-color: var(--text-muted);
+}
+
+/* === Loading === */
+.loading {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 17, 23, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#loading-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* === Toast === */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-card);
+    color: var(--text);
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+    z-index: 300;
+    animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Training</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header id="header">
+            <button id="btn-back" class="btn-icon" onclick="goBack()" style="display:none;">
+                &#8592;
+            </button>
+            <h1 id="header-title">History Training</h1>
+            <div id="streak-badge" class="streak-badge">
+                <span id="streak-icon">&#9733;</span>
+                <span id="streak-count">0</span>
+            </div>
+        </header>
+
+        <!-- Loading overlay -->
+        <div id="loading" class="loading" style="display:none;">
+            <div class="spinner"></div>
+            <p id="loading-text">Generating content...</p>
+        </div>
+
+        <!-- VIEW: Home -->
+        <div id="view-home" class="view active">
+            <div class="welcome-card">
+                <h2>Welcome Back!</h2>
+                <p id="welcome-subtitle">Pick an era to start learning</p>
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="stat-value" id="stat-streak">0</span>
+                        <span class="stat-label">Day Streak</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="stat-completed">0</span>
+                        <span class="stat-label">Topics Done</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="stat-score">0%</span>
+                        <span class="stat-label">Avg Score</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title">Choose Your Era</h3>
+            <div class="era-grid">
+                <button class="era-card" onclick="selectEra('Ancient Rome')">
+                    <div class="era-emoji">&#127471;</div>
+                    <h3>Ancient Rome</h3>
+                    <p>753 BC - 476 AD</p>
+                    <div class="era-progress" id="progress-ancient-rome">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card locked" onclick="showComingSoon()">
+                    <div class="era-emoji">&#9876;</div>
+                    <h3>Middle Ages</h3>
+                    <p>Coming Soon</p>
+                </button>
+                <button class="era-card locked" onclick="showComingSoon()">
+                    <div class="era-emoji">&#127758;</div>
+                    <h3>Age of Exploration</h3>
+                    <p>Coming Soon</p>
+                </button>
+                <button class="era-card locked" onclick="showComingSoon()">
+                    <div class="era-emoji">&#9813;</div>
+                    <h3>Renaissance</h3>
+                    <p>Coming Soon</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- VIEW: Curriculum -->
+        <div id="view-curriculum" class="view">
+            <div class="era-header">
+                <h2 id="curriculum-title"></h2>
+                <p id="curriculum-desc"></p>
+            </div>
+            <div class="topic-list" id="topic-list">
+                <!-- Topics populated by JS -->
+            </div>
+        </div>
+
+        <!-- VIEW: Lesson -->
+        <div id="view-lesson" class="view">
+            <article class="lesson-content" id="lesson-content">
+                <!-- Lesson populated by JS -->
+            </article>
+            <div class="lesson-footer">
+                <button class="btn-primary" onclick="startQuiz()">
+                    Take the Quiz &#8594;
+                </button>
+            </div>
+        </div>
+
+        <!-- VIEW: Quiz -->
+        <div id="view-quiz" class="view">
+            <div class="quiz-header">
+                <h2 id="quiz-title"></h2>
+                <div class="quiz-progress">
+                    <span id="quiz-question-num">1</span> / <span id="quiz-total">5</span>
+                </div>
+            </div>
+            <div class="quiz-question" id="quiz-question-container">
+                <p class="question-text" id="question-text"></p>
+                <div class="options" id="options-container">
+                    <!-- Options populated by JS -->
+                </div>
+            </div>
+            <div id="quiz-feedback" class="quiz-feedback" style="display:none;">
+                <p id="feedback-text"></p>
+                <p id="feedback-explanation"></p>
+                <button class="btn-primary" id="btn-next-question" onclick="nextQuestion()">
+                    Next Question &#8594;
+                </button>
+            </div>
+        </div>
+
+        <!-- VIEW: Results -->
+        <div id="view-results" class="view">
+            <div class="results-card">
+                <div class="results-score-circle">
+                    <span id="results-score">0</span>
+                    <span class="results-score-label">/ 5</span>
+                </div>
+                <h2 id="results-message">Great job!</h2>
+                <p id="results-detail"></p>
+            </div>
+            <div class="results-actions">
+                <button class="btn-primary" onclick="goToCurriculum()">
+                    Continue Learning &#8594;
+                </button>
+                <button class="btn-secondary" onclick="retakeQuiz()">
+                    Retake Quiz
+                </button>
+                <button class="btn-secondary" onclick="goHome()">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
