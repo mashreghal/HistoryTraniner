@@ -39,6 +39,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 16px 0;
     position: sticky;
     top: 0;
@@ -53,6 +54,28 @@ header h1 {
     font-weight: 700;
     flex: 1;
     text-align: center;
+    line-height: 1.2;
+}
+
+.brand-name {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.brand-product {
+    color: var(--primary);
+    font-weight: 400;
+}
+
+.brand-tagline {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: -2px;
+    flex-basis: 100%;
 }
 
 .btn-icon {

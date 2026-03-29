@@ -11,7 +11,7 @@ let navigationStack = [];
 
 // === Progress (localStorage) ===
 function loadProgress() {
-    const saved = localStorage.getItem("history_training_progress");
+    const saved = localStorage.getItem("sharpn_history_progress");
     if (saved) return JSON.parse(saved);
     return {
         streak: 0,
@@ -21,7 +21,7 @@ function loadProgress() {
 }
 
 function saveProgress(progress) {
-    localStorage.setItem("history_training_progress", JSON.stringify(progress));
+    localStorage.setItem("sharpn_history_progress", JSON.stringify(progress));
 }
 
 function getEraProgress(era) {
@@ -95,7 +95,7 @@ function goHome() {
 function updateHeader(viewId) {
     const title = document.getElementById("header-title");
     switch (viewId) {
-        case "view-home": title.textContent = "History Training"; break;
+        case "view-home": title.innerHTML = '<span class="brand-name">Sharpn</span><span class="brand-product">: History</span>'; break;
         case "view-curriculum": title.textContent = currentEra || "Curriculum"; break;
         case "view-lesson": title.textContent = "Lesson"; break;
         case "view-quiz": title.textContent = "Quiz"; break;
