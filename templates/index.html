@@ -49,6 +49,22 @@
 
             <h3 class="section-title">Choose Your Era</h3>
             <div class="era-grid">
+                <button class="era-card" onclick="selectEra('Ancient Egypt')">
+                    <div class="era-emoji">&#9765;</div>
+                    <h3>Ancient Egypt</h3>
+                    <p>3100 BC - 30 BC</p>
+                    <div class="era-progress" id="progress-ancient-egypt">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Ancient Greece')">
+                    <div class="era-emoji">&#127963;</div>
+                    <h3>Ancient Greece</h3>
+                    <p>800 BC - 146 BC</p>
+                    <div class="era-progress" id="progress-ancient-greece">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
                 <button class="era-card" onclick="selectEra('Ancient Rome')">
                     <div class="era-emoji">&#127471;</div>
                     <h3>Ancient Rome</h3>
@@ -57,20 +73,93 @@
                         <div class="era-progress-bar" style="width: 0%"></div>
                     </div>
                 </button>
-                <button class="era-card locked" onclick="showComingSoon()">
+                <button class="era-card" onclick="selectEra('Turkic Migrations and Empires')">
+                    <div class="era-emoji">&#9790;</div>
+                    <h3>Turkic Empires</h3>
+                    <p>500 - 1300 AD</p>
+                    <div class="era-progress" id="progress-turkic-empires">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Seljuk Empire')">
+                    <div class="era-emoji">&#9757;</div>
+                    <h3>Seljuk Empire</h3>
+                    <p>1037 - 1194 AD</p>
+                    <div class="era-progress" id="progress-seljuk-empire">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Ottoman Empire')">
+                    <div class="era-emoji">&#127969;</div>
+                    <h3>Ottoman Empire</h3>
+                    <p>1299 - 1922 AD</p>
+                    <div class="era-progress" id="progress-ottoman-empire">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Middle Ages')">
                     <div class="era-emoji">&#9876;</div>
                     <h3>Middle Ages</h3>
-                    <p>Coming Soon</p>
+                    <p>476 AD - 1453 AD</p>
+                    <div class="era-progress" id="progress-middle-ages">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
                 </button>
-                <button class="era-card locked" onclick="showComingSoon()">
-                    <div class="era-emoji">&#127758;</div>
-                    <h3>Age of Exploration</h3>
-                    <p>Coming Soon</p>
-                </button>
-                <button class="era-card locked" onclick="showComingSoon()">
+                <button class="era-card" onclick="selectEra('Renaissance')">
                     <div class="era-emoji">&#9813;</div>
                     <h3>Renaissance</h3>
-                    <p>Coming Soon</p>
+                    <p>1300 - 1600 AD</p>
+                    <div class="era-progress" id="progress-renaissance">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Age of Exploration')">
+                    <div class="era-emoji">&#127758;</div>
+                    <h3>Age of Exploration</h3>
+                    <p>1400 - 1600 AD</p>
+                    <div class="era-progress" id="progress-age-of-exploration">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('French Revolution')">
+                    <div class="era-emoji">&#9873;</div>
+                    <h3>French Revolution</h3>
+                    <p>1789 - 1799 AD</p>
+                    <div class="era-progress" id="progress-french-revolution">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Napoleonic Era')">
+                    <div class="era-emoji">&#9856;</div>
+                    <h3>Napoleonic Era</h3>
+                    <p>1799 - 1815</p>
+                    <div class="era-progress" id="progress-napoleonic-era">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('World War I')">
+                    <div class="era-emoji">&#128163;</div>
+                    <h3>World War I</h3>
+                    <p>1914 - 1918</p>
+                    <div class="era-progress" id="progress-world-war-i">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('World War II')">
+                    <div class="era-emoji">&#127987;</div>
+                    <h3>World War II</h3>
+                    <p>1939 - 1945</p>
+                    <div class="era-progress" id="progress-world-war-ii">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
+                </button>
+                <button class="era-card" onclick="selectEra('Cold War')">
+                    <div class="era-emoji">&#9762;</div>
+                    <h3>Cold War</h3>
+                    <p>1947 - 1991</p>
+                    <div class="era-progress" id="progress-cold-war">
+                        <div class="era-progress-bar" style="width: 0%"></div>
+                    </div>
                 </button>
             </div>
         </div>

@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 import anthropic
 
-load_dotenv(override=True)
+load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
 
 app = Flask(__name__)
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))

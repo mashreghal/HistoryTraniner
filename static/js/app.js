@@ -149,12 +149,33 @@ function updateHomeStats() {
     document.getElementById("stat-score").textContent =
         scoreCount > 0 ? Math.round((totalScore / (scoreCount * 5)) * 100) + "%" : "0%";
 
-    // Update era progress bars
-    const romeProgress = progress.eras["Ancient Rome"];
-    if (romeProgress && currentCurriculum) {
-        const pct = (romeProgress.completedTopics.length / currentCurriculum.topics.length) * 100;
-        const bar = document.querySelector("#progress-ancient-rome .era-progress-bar");
-        if (bar) bar.style.width = pct + "%";
+    // Update era progress bars for all eras
+    const eraIdMap = {
+        "Ancient Egypt": "progress-ancient-egypt",
+        "Ancient Greece": "progress-ancient-greece",
+        "Ancient Rome": "progress-ancient-rome",
+        "Turkic Migrations and Empires": "progress-turkic-empires",
+        "Seljuk Empire": "progress-seljuk-empire",
+        "Ottoman Empire": "progress-ottoman-empire",
+        "Middle Ages": "progress-middle-ages",
+        "Renaissance": "progress-renaissance",
+        "Age of Exploration": "progress-age-of-exploration",
+        "French Revolution": "progress-french-revolution",
+        "Napoleonic Era": "progress-napoleonic-era",
+        "World War I": "progress-world-war-i",
+        "World War II": "progress-world-war-ii",
+        "Cold War": "progress-cold-war"
+    };
+    for (const era in progress.eras) {
+        const ep = progress.eras[era];
+        const elId = eraIdMap[era];
+        if (elId && ep.completedTopics.length > 0) {
+            const bar = document.querySelector(`#${elId} .era-progress-bar`);
+            // Assume 15 topics per era as default if curriculum not loaded
+            const total = (currentCurriculum && currentEra === era) ? currentCurriculum.topics.length : 15;
+            const pct = Math.min((ep.completedTopics.length / total) * 100, 100);
+            if (bar) bar.style.width = pct + "%";
+        }
     }
 
     // Update welcome message
@@ -164,9 +185,6 @@ function updateHomeStats() {
     }
 }
 
-function showComingSoon() {
-    showToast("Coming soon! More eras will be added.");
-}
 
 // === Era Selection ===
 async function selectEra(era) {
