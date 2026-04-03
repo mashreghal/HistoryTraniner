@@ -8,7 +8,10 @@
       "Bash(python -c \":*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5000)",
       "Read(//c/Claude_Code_Projects/sharpn-app/**)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(curl -s -X POST http://localhost:3000/api/curriculum -H \"Content-Type: application/json\" -d '{\"era\":\"Ottoman Empire\",\"language\":\"tr\"}')",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\(0,'utf8'\\)\\); console.log\\(d.description\\); d.topics.slice\\(0,5\\).forEach\\(t=>console.log\\(t.id+'. '+t.title\\)\\)\")",
+      "Bash(curl -s http://localhost:3000/era/ancient-rome)"
     ]
   }
 }
