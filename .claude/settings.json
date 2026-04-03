@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/aliza/AppData/Local/Temp/claude/c--Claude-Code-Projects-HistoryTraniner/e198d244-c27e-4200-93aa-d6853790c03b/tasks/**)"
+    ]
+  }
+}
