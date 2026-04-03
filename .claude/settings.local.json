@@ -6,7 +6,9 @@
       "Bash(pip install -r requirements.txt)",
       "Bash(echo \"ANTHROPIC_API_KEY env: ''$ANTHROPIC_API_KEY''\")",
       "Bash(python -c \":*)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5000)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5000)",
+      "Read(//c/Claude_Code_Projects/sharpn-app/**)",
+      "Bash(npm install:*)"
     ]
   }
 }
